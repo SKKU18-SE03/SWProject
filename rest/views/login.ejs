@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Rest - 로그인</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main_2.css">
+    </head>
+
+    <body>
+        <img id="start_logo" src="../img/logo__.png">
+        <div class="loginContainer">
+            <h1>Rest 아이디로 로그인</h1>
+            <form action="/login" method="post">
+                <ul>
+                    <li>ID<input type="text" name="id" required placeholder=""></li>
+                    <li>Password<input type="password" name="password" required placeholder=""></li>
+                </ul>
+                <div class="buttons">
+                    <button class="smallButton" id="confirm" type="submit" href="/main">로그인</button>
+                    <a class="smallButton" id="cancel" href="/">취소</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

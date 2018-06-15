@@ -1,0 +1,48 @@
+<%- include('./partial/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <br><br><br>
+            <h2>POS</h2>
+            <h3>Sign Up</h3>
+            <%if(err.err!=undefined){%>
+            <p style="color:red"><%=err.err%></p>
+            <% } %>
+            <form action="/signup" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                <label for="text">Restaurant name:</label>
+                <input type="text" class="form-control" name="Name" required placeholder="Restaurant Name">
+                </div>
+                <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" name="Password" required placeholder="Password" >
+                </div>
+                <div class="form-group">
+                <label for="text">Phone number:</label>
+                <input type="text" class="form-control" name="Phone_num" required placeholder="ex: 01012345678">
+                </div>
+                <div class="form-group">
+                <label for="text">Open time:</label>
+                <input type="time" class="form-control" name="Open_time" value = "08:30">
+                </div>
+                <div class="form-group">
+                <label for="text">Close time:</label>
+                <input type="time" class="form-control" name="Close_time" value = "21:30">
+                </div>
+                <div class="form-group">
+                <label for="text">Table number:</label>
+                <input type="text" class="form-control" name="Table_num" required placeholder="ex: 1">
+                </div>
+                <div class="form-group">
+                    <label for="price">Menu Image:</label>
+                    <input type="file" name="pic" required accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-lg btn-block btn-danger">Next</button>
+            </form> <br>
+            <a class="btn btn-lg btn-block btn-primary" href="/login">Login</a>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+</div>

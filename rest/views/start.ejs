@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Rest - Start Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main_2.css">
+        <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <img id="start_logo" src="../img/logo__.png">
+        <div id="startContainer">
+            <div id="naverIdLogin"></div>
+            <script type="text/javascript">
+                var naverLogin = new naver.LoginWithNaverId(
+                    {
+                        clientId: "IArYPQp4a0ikuVj2b7rz",
+                        callbackUrl: "file:///C:/Users/LE7/Desktop/%EC%86%8C%EA%B3%B5/Project/rest_sys/callback.html",
+                        isPopup: false,
+                        loginButton: {color: "green", type: 3, height: 40}
+                    }
+                );
+                naverLogin.init();
+            </script>
+            <a class="login" href="/login">Rest 아이디로 로그인</a>
+            <a class="signUp" href="/signup">Rest 회원가입</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<%- include('./partial/header.ejs')%>
+            <div class="main_container">
+                <h1>
+                    <%=rest.Name%>
+                    <form action="/info/<%=rest.RN%>" method="post">
+                        <button>즐겨찾기 <%if(fav){ %>삭제<% } else { %> 등록 <% } %></button>
+                    </form>
+                </h1>
+                <p><img id="user_img" src="<%=helper.parseLoc_POS(rest.Img_url)%>"></p>
+                <p>남은 좌석 수:<%=rest.Rest_seats%></p>
+                <p>평점: <%=rating%></p>
+                <h2>Location</h2>
+                <div style="border:1px solid black">
+                <div id="map" style="width:100%;height:300px;"></div>
+                <script>
+                var mapOptions = {
+                    center: new naver.maps.LatLng(<%=rest.Location_x%>, <%=rest.Location_y%>),
+                    zoom: 12
+                };
+                var map = new naver.maps.Map('map', mapOptions);
+                var marker = new naver.maps.Marker({
+                    position: new naver.maps.LatLng(<%=rest.Location_x%>, <%=rest.Location_y%>),
+                    map: map
+                });
+                naver.maps.Event.addListener(map, 'click', function(e) {
+                    marker.setPosition(e.latlng);
+                });
+                </script>
+                </div>
+                <h2>Info</h2>
+                Menu
+                <br>
+                <%for(let i = 0;i<menus.length;i++){%>
+                <%=menus[i].Name%> : <%=menus[i].Price%> 
+                <br>
+                <%}%> 
+                <br>
+                Contact Number: <%=rest.Phone_number%>
+                <br>
+                Open Time: <%=(rest.Open_time.getHours())+
+                    ':'+('0'+rest.Open_time.getMinutes()).slice(-2)%>
+                <br>
+                Close Time: <%=(rest.Close_time.getHours())+
+                    ':'+('0'+rest.Close_time.getMinutes()).slice(-2)%>
+                <br>
+                Total Seats: <%=rest.Entire_table%>
+                <h2>Rating</h2>
+                <form action="/info/<%=rest.RN%>/rating" method="post">
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                </div>
+                <button>Submit</button>
+                </form>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div></div>
+        </div>
+<%- include('./partial/footer.ejs')%>

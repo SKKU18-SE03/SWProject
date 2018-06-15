@@ -1,0 +1,24 @@
+<%- include('../partial/header.ejs') %>
+<%- include('../partial/menu.ejs') %>
+
+<div class="container">
+    <h2>Choose a table to serve:</h2>
+
+    <form action="/order" method="post">
+        <br>
+        <div class="row">
+            <% for(let i = 0; i < table; i++){ %>
+                <div class="col-sm-4"><button class="btn-lg btn-block <%let j = 0;
+                        for(j=0;j<orders.length;j++){
+                            if(orders[j].TN == (i + 1)) break;
+                        }
+                        if(j==orders.length){%> btn-success <%}
+                        else {%> btn-danger <%}%> custom-table" name="table_number" type="submit" value="<%=i+1%>"><h1><%=i+1%></h1></button>
+                </div>
+            <% } %>
+        </div>
+    </form>
+
+</div>
+
+<%- include('../partial/footer.ejs') %>

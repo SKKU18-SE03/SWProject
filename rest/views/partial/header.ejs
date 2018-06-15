@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Rest</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../css/main_2.css">
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=IArYPQp4a0ikuVj2b7rz&submodules=geocoder"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        function search_res(tmp)
+        {
+            if(tmp == 13)
+            location.href="/select/search/"+document.getElementById("sr").value;
+        }
+        </script>
+    </head>
+
+    <body>
+        <div class="topbar">
+            <div class="logobox">
+                <a href="/main"><img id="logo" src="../../img/logo__.png" alt="Main Page" title="Go to Main Page"></a>
+            </div>
+            <div class="srchbar">
+                    <input type="text" id="sr" onkeydown="search_res(event.keyCode)">
+                    <img id="srch" src="../../img/if_icon-111-search_314478.png" alt="Search" title="Search">0
+                    <button id="srchB" onClick="search_res(13)"></button>
+                
+            </div>
+        </div>
+        <div class="contents_container">
+            <div class="side_container">
+                <div class="menubar">
+                    <div id="user_info">
+                        <img id="user_img" src="<%=helper.parseLoc_user(user.Img_url)%>" alt="My photo">
+                        <center> <div id="user_name"><%=user.Nickname%>님</div> </center>
+                    </div>
+                    <ul>
+                        <li><a href="/user">회원 정보 관리</a></li>
+                        <li><a href="/location">지역 설정</a></li>
+                        <li><a href="/select">식당 찾기</a></li>
+                        <li><a href="/favorite">나의 맛집</a></li>
+                        <li><a href="http://115.145.226.176:8080/community/boardList.action">커뮤니티</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div></div>
+        

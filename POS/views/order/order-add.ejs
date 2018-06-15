@@ -1,0 +1,30 @@
+<%- include('../partial/header.ejs') %>
+<%- include('../partial/menu.ejs') %>
+
+    <h1>Add Order</h2>
+
+    <form action="/order/<%=id%>/table/<%=tableId%>/ord/add" method="post">
+        Menu to book:</br>
+        <table>
+            <tr>
+                <th>Name Menu</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name='MenuId'>
+                         <% for(let i = 0; i < menus.length; i++){%>
+                             <option value = "<%=menus[i].Menu_ID%>"><%=menus[i].Name%></option>
+                         <%}%>
+                    </select><br>
+                </td>
+                <td>
+                    <input type='text' name='quantity'>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Add order">
+    </form>
+
+
+<%- include('../partial/footer.ejs') %>

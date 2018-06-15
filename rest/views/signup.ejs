@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Rest - 회원 가입</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main_2.css">
+    </head>
+
+    <body>
+        <img id="start_logo" src="../img/logo__.png">
+        <div class="signUpContainer">
+            <center><h1>회원 가입</h1></center>
+                <form action="/signup" method="post" enctype="multipart/form-data">
+                    <ul>
+                        <li>ID<input type="text" name="id" required placeholder=""></li>
+                        <li>Password<input type="password" name="password" required placeholder=""></li>
+                        <li>E-mail<input type="text" name="email" required placeholder=""></li>
+                        <li>Nickname<input type="text" name="nickname" required placeholder=""></li>
+                        <li>Picture<input type="file" name="pic" accept="image/*"></li>
+                    </ul>
+                    <div class="buttons">
+                        <button type="submit" class="smallButton" id="confirm" href="/main">회원가입</button>
+                        <a class="smallButton" id="cancel" href="/">취소</a>
+                    </div>
+                </form>
+        </div>
+    </body>
+</html>

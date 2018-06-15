@@ -1,0 +1,167 @@
+<%- include('./partial/header.ejs')%>
+    <script>
+        function openBar(self, index){
+            var mlist = document.getElementsByClassName('mapContainer');
+            mlist[0].style.display = 'none';
+
+            if(self.value === 'off') {
+                var llist = document.getElementsByClassName('locB');
+                var llist2 = document.getElementsByClassName('location2');
+                var i = 0;
+
+                while(i < llist.length){
+                    llist[i].style.backgroundColor = 'white';
+                    llist[i].style.color = 'black';
+                    llist[i].value = 'off';
+                    i = i + 1;
+                }
+                i = 0;
+                while(i < llist2.length){
+                    llist2[i].style.display = 'none';
+                    i = i + 1;
+                }
+                if(index < llist2.length) {
+                    llist2[index].style.display = 'block';
+                }
+                self.value = 'on';
+                self.style.backgroundColor = 'black';
+                self.style.color = 'white';
+            }
+        }
+        function openMap(self, x, y){
+            if(self.value === 'off'){
+                var llist = document.getElementsByClassName('loc2B');
+                var mlist = document.getElementsByClassName('mapContainer');
+                var i = 0;
+
+                while(i < llist.length){
+                    llist[i].style.backgroundColor = 'white';
+                    llist[i].style.color = 'black';
+                    llist[i].value = 'off';
+                    i = i + 1;
+                }
+
+                mlist[0].style.display = 'block';
+                self.value = 'on';
+                self.style.backgroundColor = 'black';
+                self.style.color = 'white';
+
+                var location = new naver.maps.LatLng(x, y);
+                map.setCenter(location);
+                marker.setPosition(location);
+            }
+        }
+        function setMyLoc() {
+            var mlist = document.getElementsByClassName('mapContainer');
+            mlist[0].style.display = 'block';
+
+            function onSuccessGeolocation(position) {
+                console.log("onSuccess");
+                var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                map.setCenter(location);
+                marker.setPosition(location);
+            }
+            function onErrorGeolocation() {
+                console.log("onError");
+                var center = map.getCenter();
+            }
+            if (navigator.geolocation) {
+                console.log("geolocation exist");                        
+                navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+            } else {
+                console.log("geolocation error");
+                var center = map.getCenter();
+            }
+        }
+        function setUserLoc(){
+            var f = document.createElement("form");
+            f.setAttribute('method',"post");
+            f.setAttribute('action',"/location");
+
+            var x = document.createElement("input"); //input element, text
+            x.setAttribute('type',"text");
+            x.setAttribute('name',"Location_x");
+            x.setAttribute('value',marker.position._lat);
+
+            var y = document.createElement("input"); //input element, Submit button
+            y.setAttribute('type',"text");
+            y.setAttribute('name',"Location_y");
+            y.setAttribute('value',marker.position._lng);
+            console.log("asdf");
+            f.appendChild(x);
+            f.appendChild(y);
+            document.getElementsByTagName('body')[0].appendChild(f);
+            f.submit();
+
+        }
+        </script>
+            <div class="main_container">
+                <h1>지역 설정</h1>
+                <button id="mylocB" onclick="setMyLoc()">내 위치로 설정</button>
+                <div class="locationContainer">
+                    <div class="location">
+                        <ul>
+                            <li><button class="locB" value="off" onclick="openBar(this, 0)">서울시</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 1)">경기도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 2)">인천</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 3)">대구</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 4)">부산</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 5)">제주</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 6)">대전</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 7)">광주</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 8)">울산</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 9)">강원도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 10)">경상남도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 11)">경상북도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 12)">전라남도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 13)">전라북도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 14)">충청남도</button></li>
+                            <li><button class="locB" value="off" onclick="openBar(this, 15)">충청북도</button></li>
+                        </ul>
+                    </div>
+                    <div class="location2" id="loc_seoul">
+                        <ul>
+                            <li><button class="loc2B" value="off" onclick="openMap(this,37.498151,127.027632)">강남역</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.520626, 127.022927)">가로수길</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.524283, 127.022669)">신사/압구정</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.557612, 126.924456)">홍대</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.534557, 126.996600)">이태원/한남동</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.556860, 126.945925)">신촌/이대</button></li>
+                        </ul>
+                    </div>
+                    <div class="location2" id="loc_gyeonggi">
+                        <ul>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.407048, 127.113825)">성남시</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.293973, 126.974901)">수원시</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.643925, 126.787454)">고양시</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.241079, 127.177920)">용인시</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.393685, 126.958153)">안양시</button></li>
+                            <li><button class="loc2B" value="off" onclick="openMap(this, 37.501597, 126.765862)">부천시</button></li>
+                        </ul>
+                    </div>
+                    <div class="mapContainer">
+                        <div id="map" style="width:100%;height:520px;"></div>
+                        <script>
+                            var mapOptions = {
+                                center: new naver.maps.LatLng(37.3595704, 127.105399),
+                                zoom: 12
+                            };
+                            var map = new naver.maps.Map('map', mapOptions);
+                            var marker = new naver.maps.Marker({
+                                position: new naver.maps.LatLng(37.3595704, 127.105399),
+                                map: map
+                            });
+                            naver.maps.Event.addListener(map, 'click', function(e) {
+                                marker.setPosition(e.latlng);
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="buttons" href="/main">
+                    <button class="smallButton" id="confirm" onClick="setUserLoc()">변경</button>
+                    <a class="smallButton" id="cancel"  href="/main">취소</a>
+                </div>
+            </div>
+            <div></div>
+        </div>
+<%- include('./partial/footer.ejs')%>

@@ -1,0 +1,18 @@
+<%- include('./partial/header.ejs')%>
+            <div class="main_container">
+                    <h1><%if(tmp == 'time'){ %> 시간별 맛집<%}else{%>추천맛집<%}%></h1>
+                <center>
+                    <div id="box">
+                        <% for(let i = 0;i<rest.length;i++) {%>
+                        <div class="restImgC">
+                            <a href="/info/<%=rest[i].RN%>"><img id="rest_img" src="<%=helper.parseLoc_POS(rest[i].Img_url)%>"></a>
+                            <h3><%=rest[i].Name%></h3><h4>잔여좌석 : <%=rest[i].Rest_seats%> / <%=rest[i].Entire_seats%></h4>
+                        </div>
+                        <% } %>
+                    </div>
+                </center>
+            </div>
+            <div></div>
+        </div>
+<%- include('./partial/footer.ejs')%>
+

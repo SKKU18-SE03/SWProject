@@ -1,0 +1,671 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    outline: none;
+}
+#start_logo {
+    display: block;
+    width: 560px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#startContainer {
+    width: 425px;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#naverIdLogin {
+    display: inline;
+}
+.login {
+    float: right;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+.signUp {
+    float: none;
+    display: block;
+    width: 420px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+}
+.topbar {
+    background-color: white;
+    height: 200px;
+    border-bottom: 1px solid black;
+    display: block;
+}
+.logobox {
+    width: 350px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo {
+    display: block;
+    width: 320px;
+    height: 150px;
+    padding: 0px 25px;
+}
+.srchbar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 600px;
+    height: 30px;
+}
+.srchbar input[type=text] {
+    width: 600px;
+    height: 30px;
+    color: dimgray;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-right: 31px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.srchbar input:focus {
+    outline: none;
+}
+#srchB {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+#srch {
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+.contents_container {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 200px 10% 800px 10%;
+}
+.menubar {
+    width: 200px;
+    position: sticky;
+    top: 0px;
+}
+#user_info {
+    background-color: black;
+    height: 180px;
+    color: whitesmoke;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 1px;
+}
+#user_name {
+    margin-top: 10px;
+    font-size: 10px;
+}
+#user_img {
+    height: 120px;
+    width: 120px;
+    margin: 20px 40px 0px;
+    border: 1px solid white;
+}
+.menubar ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.menubar li {
+    text-align: center;
+    background-color: black;
+    border-bottom: 1px solid whitesmoke;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+.menubar li:last-child{
+    border-bottom: none;
+    height: 40px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.menubar li a {
+    display: block;
+    color: white;
+    padding: 5px 0px;
+    font-size: 12px;
+    text-decoration: none;
+}
+.menubar li a.active {
+    background-color: white;
+    color: black;
+}
+.menubar li a:hover {
+    background-color: dimgray;
+}
+.main_container h1 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.signUpContainer {
+    display: block;
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.signUpContainer ul {
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0px;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+.signUpContainer li {
+    width: 600px;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.signUpContainer input[type=text] {
+    float: right;
+    width: 200px;
+    height: 20px;
+    padding: none;
+    padding-left: 2px;
+    color: dimgray;
+    font-size: 12px;
+}
+.signUpContainer input[type=password] {
+    float: right;
+    width: 200px;
+    height: 20px;
+    padding: none;
+    padding-left: 2px;
+    color: dimgray;
+    font-size: 12px;
+}
+.loginContainer {
+    display: block;
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loginContainer ul {
+    display: block;
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0px;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+.loginContainer li {
+    width: 600px;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.loginContainer input[type=text] {
+    float: right;
+    width: 200px;
+    height: 20px;
+    padding: none;
+    padding-left: 2px;
+    color: dimgray;
+    font-size: 12px;
+}
+.loginContainer input[type=password] {
+    float: right;
+    width: 200px;
+    height: 20px;
+    padding: none;
+    padding-left: 2px;
+    color: dimgray;
+    font-size: 12px;
+}
+.userManageContainer ul {
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0px;
+    padding: 10px;
+    padding-bottom: 30px;
+    min-width: 720px;
+}
+.userManageContainer li {
+    width: 600px;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.userManageContainer input[type=text] {
+    float: right;
+    width: 200px;
+    height: 20px;
+    padding: none;
+    padding-left: 2px;
+    color: dimgray;
+    font-size: 12px;
+}
+.userManageContainer input[type=password] {
+    float: right;
+    width: 200px;
+    height: 20px;
+    padding: none;
+    padding-left: 2px;
+    color: dimgray;
+    font-size: 12px;
+}
+.userManageContainer input[type=file] {
+    float: right;
+}
+.locationContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.location ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.location li:first-child {
+    border-top: 1px solid black;
+}
+.location2 {
+    margin-left: 2px;
+}
+.location2 ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.location2 li:first-child {
+    border-top: 1px solid black;
+}
+.locB {
+    background-color: white;
+    border: none;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    color: black;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.locB:hover {
+    background-color: dimgray;
+    color: white;
+}
+.loc2B {
+    background-color: white;
+    border: none;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    color: black;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.loc2B:hover {
+    background-color: dimgray;
+    color: white;
+}
+#loc_seoul {
+    display: none;
+}
+#loc_gyeonggi {
+    display: none;
+}
+.mapContainer {
+    display: none;
+    margin-left: 2px;
+    border: 1px solid black;
+}
+.card {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    padding-top: 0px;
+    background-color: black;
+    color: white;
+}
+.card:first-child{
+    margin-top: 50px;
+}
+.card h1 {
+    display: inline;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    font-weight: normal;
+    font-size: 13px;
+}
+.card p {
+    float: right;
+    margin: 0px;
+    margin-top: 3px;
+    margin-right: 5px;
+    font-size: 11px;
+}
+.card img {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+.card h3 {
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+}
+.card h4 {
+    position: absolute;
+    left: 5px;
+    bottom: 0px;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+.img1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    z-index: 0;
+}
+.img2 {
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    width: 200px;
+    height: 200px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    z-index: 0;
+}
+.img3 {
+    position: absolute;
+    bottom: 0;
+    left: 400px;
+    width: 200px;
+    height: 200px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    z-index: 0;
+}
+.img4 {
+    position: absolute;
+    bottom: 0;
+    left: 600px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    z-index: 0;
+}
+.card a:link {
+    color: white;
+    text-decoration: none;
+}
+.card a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.card a:visited {
+    color: white;
+}
+.main_rest_img {
+    float: left;
+    width: 30%;
+    padding: 5px;
+}
+.buttons {
+    display: block;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top : 20px;
+}
+.smallButton {
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.loginButton {
+    float: right;
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+#mylocB {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    display: block;
+    width: 100%;
+    height: 33px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+#confirm {
+    background-color: black;
+    color: white;
+}
+#cancel {
+    float: right;
+    background-color: white;
+    color: black;
+}
+.restImgC {
+    position: relative;
+    display: inline;
+    width: 200px;
+    height: 200px;
+}
+#rest_img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-left: 10px;
+    opacity: 0.6;
+}
+.sortBox {
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 3px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.sortBox label {
+    margin-left: 40px;
+}
+.sortBox button {
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+.sortBox button:hover {
+    background-color: white;
+    color: black;
+}
+@media(max-width:800px) {
+    .contents_container {
+        display: block;
+        margin-top: 5px;
+    }
+    .side_container {
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+    }
+    .menubar {
+        height: 30px;
+        width: 100%;
+    }
+    #user_info {
+        display: none;
+    }
+    .menubar ul {
+        background-color: black;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        height: 32px;
+        width: 100%;
+        min-width: 600px;
+    }
+    .menubar li {
+        float: left;
+        display: block;
+        text-align: center;
+        border: 1px solid black;
+    }
+    .menubar li:last-child{
+        display: none;
+    }
+    .menubar li a {
+        color: white;
+        padding: 7px 30px;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .card {
+        display: block;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card:first-child{
+        margin-top: 20px;
+    }
+    .img3 {
+        border-right: none;
+    }
+    .img4 {
+        display: none;
+    }
+}
+#box {
+    border: 1px solid black;
+    padding-bottom: 20px;
+    display: block;
+    margin-top: 10px;
+    min-width: 700px;
+}
+.restImgC h3 {
+    position: absolute;
+    left: 15px;
+    bottom: 25px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+.restImgC h4 {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.restImgC h5 {
+    position: absolute;
+    left: 15px;
+    bottom: 0px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.rate {
+  border: 1px solid #cccccc;
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+.rate:not(:checked) > label:before { content: '⭐ '; }
+.rate > input:checked ~ label { color: #ffc700; }
+.rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label { color: #deb217; }
+.rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label { color: #c59b08; }

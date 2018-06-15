@@ -1,0 +1,22 @@
+<%- include('./partial/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <br><br><br>
+            <h2>POS</h2>
+            <h3>Sign Up</h3>
+            <form action="/signup2" method="post">
+                <% for(let i = 0; i < data.Entire_table; i++){%>
+                    <div class="form-group">
+                    <label for="text">Table<%=i+1%>:</label>
+                    <input type="text" class="form-control" required name="Table<%=i%>">
+                    </div>
+                <% } %>
+                <button type="submit" class="btn btn-lg btn-block btn-danger">Register</button>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+</div>

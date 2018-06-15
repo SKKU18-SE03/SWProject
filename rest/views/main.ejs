@@ -1,0 +1,45 @@
+<%- include('./partial/header.ejs')%>
+            <div class="main_container">
+                <div class="card">
+                    <h1>나의 단골 식당</h1><p><a href="/favorite">more+</a></p>
+                    <%for(let i = 0;i < fav.length; i++){%>
+                        <div class="img<%=i+1%>">
+                        <a href="/info/<%=fav[i].RN%>"><img src="<%=helper.parseLoc_POS(fav[i].Img_url)%>"></a>
+                        <h3>식당 이름 : <%=fav[i].Name%></h3>
+                        <h4>잔여 좌석 : <%=fav[i].Rest_seats%> / <%=fav[i].Entire_seats%></h4>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="card">
+                    <h1 style="color:yellow">
+                    <%let tmp = new Date().getHours();
+                      if(tmp<6){ %> 전날 <% }
+                      else if(tmp>=6 && tmp<=10){ %> 아침 <% }
+                      else if(tmp>=11 && tmp<=16) { %> 점심 <% }
+                      else if(tmp>=17 && tmp<=20){ %> 저녁 <% }
+                      else{ %> 이전 <% } %>
+                    </h1>
+                    <h1>시간대의 인기 식당</h1><p><a href="/favorite/time">more+</a></p>
+                    <%for(let i = 0;i < tim.length; i++){%>
+                        <div class="img<%=i+1%>">
+                        <a href="/info/<%=tim[i].RN%>"><img src="<%=helper.parseLoc_POS(tim[i].Img_url)%>"></a>
+                        <h3>식당 이름 : <%=tim[i].Name%></h3>
+                        <h4>잔여 좌석 : <%=tim[i].Rest_seats%> / <%=tim[i].Entire_seats%></h4>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="card">
+                    <h1>추천 식당</h1><p><a href="/favorite/rec">more+</a></p>
+                    <div class="img1"><img src="../img/no_img.png">
+                    <h3>식당이름</h3><h4>잔여좌석</h4></div>
+                    <div class="img2"><img src="../img/no_img.png">
+                    <h3>식당이름</h3><h4>잔여좌석</h4></div>
+                    <div class="img3"><img src="../img/no_img.png">
+                    <h3>식당이름</h3><h4>잔여좌석</h4></div>
+                    <div class="img4"><img src="../img/no_img.png">
+                    <h3>식당이름</h3><h4>잔여좌석</h4></div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+<%- include('./partial/footer.ejs')%>

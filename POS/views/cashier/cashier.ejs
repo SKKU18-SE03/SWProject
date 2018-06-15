@@ -1,0 +1,53 @@
+<%- include('../partial/header.ejs') %>
+<%- include('../partial/menu.ejs') %>
+
+
+<div class="container">
+        <h2>Table Status</h2>
+        <h4><a href='/cashier' class="btn btn-primary">All</a>
+        <a href='/cashier/active' class="btn btn-primary">Active</a>
+        <a href='/cashier/history' class="btn btn-primary">History</a></h4>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Table</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i=0; i<order.length; i++) {%>
+            <tr>
+                <% no=i+1 %>
+              <td><%= no %></td>
+              <td><%= order[i].TN %></td>
+              <td>
+                <ul class="list-group">
+                    <% let result = 0;
+                       for(let j = 0; j < orderMenu.length; j++){
+                           if(orderMenu[j].OdN == order[i].OdN){
+                               for(let k = 0; k < menu.length; k++){
+                                   if(orderMenu[j].Menu_ID == menu[k].Menu_ID){
+                                       result += orderMenu[j].Menu_count * menu[k].Price;
+                                   }
+                               }
+                           }
+                       }%>
+                    <li><%= helper.krwString(result) %></li>
+                </ul>
+              </td>
+              <td>
+                <% if(order[i].Pay_time == null){ %>
+                    <a class="btn btn-danger" href="/cashier/<%=order[i].OdN%>/receipt">PAY</a>
+                <% } else { %>
+                    <a class="btn btn-success" href="" disabled>Already Paid</a>
+                <% } %>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+<%- include('../partial/footer.ejs') %>

@@ -1,0 +1,68 @@
+<%- include('../partial/header.ejs') %>
+<%- include('../partial/menu.ejs') %>
+
+<div class="container">
+
+
+    <div class="page-header">
+        <h1>Add Order   <small>   List Table Orders <%=table.TN%></small></h1>    
+    </div>
+    
+    <br>
+    <form class="form-inline" action="/order/<%=OdN%>/table/<%=table.TN%>/ord" method="post">
+        <div class="form-group">
+            <label for="sel1">Name Menu:</label>
+            <select class="form-control" name="MenuId" id="sel1">
+                <% for(let i = 0; i < menu.length; i++){%>
+                    <option value = "<%=menu[i].Menu_ID%>"><%=menu[i].Name%></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="text">Amount:</label>
+            <input type="text" class="form-control" id="text" placeholder="Amount" name="quantity">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Order</button>
+    </form>
+
+    <form action="/order/<%=OdN%>/table/<%=table.TN%>/ord/done" method="post">
+        <br>
+        <div class="form-group">
+            <label for="text">Visitors:(max : <%=table.Entire_seat%>)</label>
+            <input type="text" class="form-control" id="text" required name="visitor">
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name Menu</th>
+                    <th>Amount</th>
+                    <th>Price of unit</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i < orderMenu.length; i++){let j;%>
+                <tr>
+                    <%for (j = 0;j<menu.length;j++) if(menu[j].Menu_ID == orderMenu[i].Menu_ID) break;%>
+                    <td><%=i+1%></td>
+                    <td><%=menu[j].Name%></td>
+                    <td><%=orderMenu[i].Menu_count %></td>
+                    <td><%=menu[j].Price%></td>
+                    <td><%=helper.krwString(helper.countTotal(menu[j].Price, orderMenu[i].Menu_count))%></td>
+                    <td><a href="/order/<%=OdN%>/table/<%=table.TN%>/ord/delete/<%=orderMenu[i].Menu_ID%>">Delete</a></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <input class="btn btn-primary btn-lg btn-block" type='submit' value='Order Process'>
+    </form>
+<div>
+
+
+</div>
+
+    
+<%- include('../partial/footer.ejs') %>

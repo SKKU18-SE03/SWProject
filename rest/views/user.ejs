@@ -1,0 +1,24 @@
+<%- include ./partial/header.ejs%>
+<div class="main_container">
+    <div class="userManageContainer">
+        <h1>회원 정보 관리</h1>
+            <form action="/user" method="post" enctype="multipart/form-data">
+            <ul>
+                <li>ID<input type="text" name="id" required disabled value=<%=user.ID%>></li>
+                <li>Password<input type="password" name="password" required></li>
+                <li>E-mail<input type="text" name="email" required value=<%=user.E_Mail%>></li>
+                <li>Nickname<input type="text" name="nickname" required value=<%=user.Nickname%>></li>
+                <li>Profile Image
+                    <input type="file" accept="image/*" name="pic">
+                </li>
+                </ul>
+                <div class="buttons">
+                    <button type="submit" class="smallButton" id="confirm" href="/user">변경</button>
+                    <a class="smallButton" id="cancel" herf="/main">취소</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div></div>
+</div>
+<%- include ./partial/footer.ejs%>

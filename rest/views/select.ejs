@@ -1,0 +1,30 @@
+<%- include('./partial/header.ejs')%>
+    <script>
+        function goURL(tmp){ location.href="/select/"+tmp.value}
+    </script>
+    <div class="main_container">
+        <h1>식당 찾기</h1>
+        <dev class="sortBox">
+            정렬방식
+            <label><input type="radio" name="sort" onClick="goURL(this)" value="seatrate">만석률순</label>
+            <label><input type="radio" name="sort" onClick="goURL(this)" value="fast">빠른 식사순</label>
+            <label><input type="radio" name="sort" onClick="goURL(this)" value="favorite">많이 즐겨찾기된순</label>
+            <label><input type="radio" name="sort" onClick="goURL(this)" value="rating">평점순</label>
+        </dev>
+        <center>
+            <div id="box">
+                <% for(let i = 0;i<rest.length;i++) {%>
+                <div class="restImgC">
+                    <a href="/info/<%=rest[i].RN%>"><img id="rest_img" src="<%=helper.parseLoc_POS(rest[i].Img_url)%>"></a>
+                    <h3><%=rest[i].Name%></h3><h4>잔여좌석 : <%=rest[i].Rest_seats%> / <%=rest[i].Entire_seats%></h4>
+                    <%if(id=="seatrate"){%>
+                    <h5>만석률 : <%=rest[i].seat_Rate%>%</h5>
+                    <%}%>
+                </div>
+                <% } %>
+            </div>
+        </center>
+    </div>
+    <div></div>
+    </div>
+<%- include('./partial/footer.ejs')%>

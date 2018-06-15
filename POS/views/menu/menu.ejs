@@ -1,0 +1,44 @@
+<%- include('../partial/header.ejs') %>
+<%- include('../partial/menu.ejs') %>
+
+<div class="container">
+
+<h2>Table Menu</h2>
+
+<a class="btn btn-primary" href="/menus/add">Add Menu</a>
+
+<form action='/menus/search' method='post'>
+    <p>Search:
+    <input type='text' name='search'>
+    <input type='submit' value='Submit'></p>
+    </form>
+
+
+<h3>Food</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i=0; i<data.length; i++){%>
+    <tr>
+        <% no=i+1%>
+        <td><%= no %></td>
+        <td><%= data[i].Name %></td>
+        <td><%= data[i].Price %></td>
+        <td>
+            <a class="btn btn-warning" href="/menus/edit/<%= data[i].Menu_ID %>">EDIT</a>
+            <a class="btn btn-danger" href="/menus/delete/<%= data[i].Menu_ID %>">DELETE</a>
+        </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+</div>
+
+<%- include('../partial/footer.ejs') %>

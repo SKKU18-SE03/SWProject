@@ -1,0 +1,581 @@
+{
+    "tables": {
+        "Article": {
+            "tableName": "Article",
+            "schema": {
+                "AN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Contents": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(1000)"
+                },
+                "Recommandation": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Date": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "SN": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "User",
+                        "key": "SN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Article_IMG_URL": {
+            "tableName": "Article_IMG_URL",
+            "schema": {
+                "AN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Article",
+                        "key": "AN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Img_url": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Daily_order": {
+            "tableName": "Daily_order",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Date": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "Morning_visitor": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Lunch_visitor": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Dinner_visitor": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Daily_visitor": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Order_Menu": {
+            "tableName": "Order_Menu",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "OdN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Menu_ID": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Menu_count": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Orders": {
+            "tableName": "Orders",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "OdN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "TN": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Orders_time": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATE"
+                },
+                "Pay_time": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATE"
+                },
+                "Vistors": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Prime_User": {
+            "tableName": "Prime_User",
+            "schema": {
+                "SN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "User",
+                        "key": "SN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Name": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(8)"
+                },
+                "Address": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Phone_number": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Rating": {
+            "tableName": "Rating",
+            "schema": {
+                "SN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "User",
+                        "key": "SN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "RVN": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "Review",
+                        "key": "RVN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Restaurant": {
+            "tableName": "Restaurant",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Name": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Password": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Location": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Phone_number": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(11)"
+                },
+                "Add_date": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "Open_time": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATE"
+                },
+                "Close_time": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATE"
+                },
+                "Total_order": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Total_mealtime": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATE"
+                },
+                "Entire_table": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Entire_seats": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Table_rotation_rate": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.FLOAT"
+                },
+                "Waiting_people": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Rest_table": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Restaurant_IMG_URL": {
+            "tableName": "Restaurant_IMG_URL",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Img_url": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Restaurant_menu": {
+            "tableName": "Restaurant_menu",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Menu_ID": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Name": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Price": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Review": {
+            "tableName": "Review",
+            "schema": {
+                "RVN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Contents": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Rating": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.FLOAT"
+                },
+                "Date": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Review_IMG_URL": {
+            "tableName": "Review_IMG_URL",
+            "schema": {
+                "RVN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Review",
+                        "key": "RVN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Img_url": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Table_info": {
+            "tableName": "Table_info",
+            "schema": {
+                "RN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "TN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Entire_seat": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "User": {
+            "tableName": "User",
+            "schema": {
+                "SN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "ID": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(12)"
+                },
+                "PW": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Nickname": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(12)"
+                },
+                "E_Mail": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Location": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Img_url": {
+                    "allowNull": true,
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "User_Favorite": {
+            "tableName": "User_Favorite",
+            "schema": {
+                "SN": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "User",
+                        "key": "SN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "Favorite": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Restaurant",
+                        "key": "RN"
+                    },
+                    "seqType": "Sequelize.INTEGER(11)"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 1
+}
